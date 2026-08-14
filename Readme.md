@@ -1,50 +1,48 @@
-## Memory Flow
+# Project Overview
 
-1. The `main()` method starts execution, and a stack frame is created in the Stack.
+This program demonstrates how a Java object is created, how methods are called, how instance variables are updated, and how Stack and Heap memory are involved.
 
-2. The reference variable `s1` is created in the Stack.
+## Understanding of the Requirement
 
-3. When `Student s1 = new Student();` is executed:
-   - A `Student` object is created in the Heap.
-   - The reference `s1` points to the Student object.
-   - Instance variables are stored inside the Student object in the Heap.
-   - Instance variables receive their default values.
+The program creates a `Student` object using the `new` keyword.
 
-4. The reference variable `sc` is created in the Stack.
+The student information includes:
 
-5. When `Scanner sc = new Scanner(System.in);` is executed:
-   - A Scanner object is created in the Heap.
-   - The reference `sc` points to the Scanner object.
+- Student Name
+- Course Name
+- Completed Topics
+- Questions Solved
 
-6. When `setDetails()` is called:
-   - A new stack frame is created.
-   - Parameters `name` and `courseName` are stored in that stack frame.
-   - The values are assigned to the Student object's instance variables in the Heap.
-   - After the method finishes, its stack frame is removed.
+The program uses separate methods to:
 
-7. When `setProgress()` is called:
-   - A new stack frame is created.
-   - Parameters `completedTopics` and `questionsSolved` are stored in the stack frame.
-   - The values are updated in the Student object in the Heap.
-   - After the method finishes, its stack frame is removed.
+- Set student details
+- Set student progress
+- Display student details
+- Display student progress
+- Add completed topics
+- Add solved questions
 
-8. When `displayDetails()` or `displayProgress()` is called:
-   - A new stack frame is created.
-   - The method accesses the Student object through the `s1` reference.
-   - The required information is displayed.
-   - The stack frame is removed after execution.
+## Student Information Used
 
-9. When `addTopics()` is called:
-   - A stack frame is created.
-   - The new topic count is received as a parameter.
-   - The existing `completedTopics` value in the Heap is updated.
-   - The updated value is returned.
-   - The stack frame is removed after execution.
+- **Name:** Student name entered by the user
+- **Course Name:** Course name entered by the user
+- **Completed Topics:** Number of completed topics
+- **Questions Solved:** Number of questions solved
 
-10. When `addQuestions()` is called:
-    - A stack frame is created.
-    - The new questions count is received as a parameter.
-    - The existing `questionsSolved` value in the Heap is updated.
-    - The updated value is returned.
-    - The stack frame is removed after execution.
+## Variables and Data Types Used
 
+| Data Type | Variable | Purpose |
+|---|---|---|
+| `String` | `name` | Student name |
+| `String` | `courseName` | Course name |
+| `int` | `completedTopics` | Number of completed topics |
+| `int` | `questionsSolved` | Number of questions solved |
+| `Student` | `s1` | Reference variable |
+| `Scanner` | `sc` | Reference variable |
+
+## Object Creation
+
+The Student object is created using:
+
+```java
+Student s1 = new Student();
